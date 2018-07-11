@@ -1,8 +1,11 @@
+var fs = require("fs");
 var http = require("http");
 
 http.createServer(function(req, res){
-    res.writeHead(200, {"content-type": "text/html"});
-    res.write("<h1>Node.js</h1>");
-    res.end("<p>Hello World</p>")
+    res.writeHead(200, {
+        "content-type": "text/html"
+    });
+    var html = fs.readFileSync("./1.html");
+    res.write(html);
+    res.end();
 }).listen(3000);
-console.log("123");
